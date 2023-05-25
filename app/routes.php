@@ -17,5 +17,5 @@ return function (App $app) {
     });
 
     $app->get('/courses', CoursesAPIController::class);
-
+    $app->get('/tasks', Tasks::class);
 };
