@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 use App\Controllers\CoursesAPIController;
+use App\Controllers\TaskAdd;
+use App\Controllers\TaskForm;
 use App\Controllers\Tasks;
 use Slim\App;
 use Slim\Views\PhpRenderer;
@@ -18,5 +20,8 @@ return function (App $app) {
     });
 
     $app->get('/courses', CoursesAPIController::class);
+
     $app->get('/tasks', Tasks::class);
+    $app->get('/addtask', TaskForm::class);
+    $app->post('/tasks', TaskAdd::class);
 };

@@ -53,4 +53,16 @@ class TasksModel
 //        $query->execute($params);
 //        return $this->db->lastInsertId();
 //    }
+    public function addTask($newTask)
+    {
+        $sql = 'INSERT INTO `tasks` (`name`, `status`)
+            VALUES (:name, :status);';
+        $query = $this->db->prepare($sql);
+        $params = [
+            'name' => $newTask['name'],
+            'status' => $newTask['status']
+        ];
+        $query->execute($params);
+        return $this->db->lastInsertId();
+    }
 }
