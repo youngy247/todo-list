@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Controllers\CoursesAPIController;
+use App\Controllers\Tasks;
 use Slim\App;
 use Slim\Views\PhpRenderer;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
