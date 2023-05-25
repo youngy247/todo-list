@@ -9,7 +9,8 @@
 <ul>
     <?php
     foreach ($tasks as $task) {
-        echo '<li>' . $task->getName() . ' - ' . $task->getStatus() . '</li>';
+        $status = $task->getStatus() === 0 ? 'Incomplete' : 'Complete';
+        echo '<li>' . $task->getName() . ' - ' . $status . '</li>';
     }
     ?>
 </ul>

@@ -43,15 +43,9 @@ class Task
     /**
      * @return int
      */
-    public function getStatus(): string
+    public function getStatus(): int
     {
-        if ($this->status === 0) {
-            return "Incomplete";
-        } else if ($this->status === 1) {
-            return "Complete";
-        } else {
-            return "Unknown";
-        }
+        return $this->status;
     }
 
     /**
