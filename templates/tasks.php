@@ -11,19 +11,16 @@
     <label for="name">Task name</label>
     <input id="name" name="name" />
 
-    <label for="status">Status</label>
-    <select id="status" name="status">
-        <option value="0">Incomplete</option>
-        <option value="1">Complete</option>
-    </select>
+    <input type="hidden" id="status" name="status" value="0">
 
     <button type="submit">Submit</button>
 </form>
+
 <ul>
     <?php
     foreach ($tasks as $task) {
         if ($task->getStatus() === 0) {
-            echo '<li>' . $task->getName();
+            echo '<li>' . $task->getName() . '</li>';
         }
     }
     ?>
