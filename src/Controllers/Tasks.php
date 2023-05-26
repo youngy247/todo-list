@@ -27,4 +27,14 @@ class Tasks
         $data = $this->tasksModel->getTasks();
         return  $this->renderer->render($response, 'tasks.php', ['tasks' => $data]);
     }
+
+    public function updateStatus(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $taskId = $request->getParam('task_id');
+        $status = $request->getParam('status');
+
+        $this->tasksModel->updateTaskStatus($taskId, $status);
+
+        return $response->withRedirect('/tasks');
+    }
 }

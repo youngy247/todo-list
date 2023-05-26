@@ -74,4 +74,17 @@ class TasksModel
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result['count'];
     }
+
+    public function updateTaskStatus($taskId, $status)
+    {
+        $sql = 'UPDATE `tasks`
+            SET `status` = :status
+            WHERE `id` = :task_id;';
+        $query = $this->db->prepare($sql);
+        $params = [
+            'status' => $status,
+            'task_id' => $taskId
+        ];
+        $query->execute($params);
+    }
 }

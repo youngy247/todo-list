@@ -23,4 +23,6 @@ return function (App $app) {
 
     $app->get('/tasks', Tasks::class);
     $app->post('/tasks', TaskAdd::class);
+
+    $app->post('/tasks/update-status', [Tasks::class, 'updateStatus']);
 };

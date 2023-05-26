@@ -17,13 +17,18 @@
 </form>
 
 <ul>
-    <?php
-    foreach ($tasks as $task) {
-        if ($task->getStatus() === 0) {
-            echo '<li>' . $task->getName() . '</li>';
-        }
-    }
-    ?>
+    <?php foreach ($tasks as $task): ?>
+        <?php if ($task->getStatus() === 0): ?>
+            <li>
+                <?php echo $task->getName(); ?>
+                <form class="status-form" action="/tasks/update-status" method="post">
+                    <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
+                    <button type="submit" id="status" name="status" value="1">Mark as Complete</button>
+                </form>
+            </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
 </ul>
+
 </body>
 </html>
