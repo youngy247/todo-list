@@ -26,4 +26,9 @@ return function (App $app) {
 
     $app->post('/tasks/update-status', [Tasks::class, 'updateStatus']);
     $app->get('/completedtasks', Tasks::class);
+
+    $app->post('/completedtasks/delete', [Tasks::class, 'deleteTask']);
+
+
+
 };

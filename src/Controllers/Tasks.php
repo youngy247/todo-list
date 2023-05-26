@@ -41,4 +41,18 @@ class Tasks
 
         return $response->withRedirect('/tasks');
     }
+    public function deleteTask(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $taskId = $request->getParam('task_id');
+
+        $this->tasksModel->deleteTask($taskId);
+
+        $currentUrl = $request->getUri()->getPath();
+
+        if($currentUrl === '/completedtasks/delete'){
+            return $response->withRedirect('/completedtasks');
+        }
+        return $response->withRedirect('/tasks');
+
+    }
 }

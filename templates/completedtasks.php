@@ -10,7 +10,13 @@
 <ul>
     <?php foreach ($tasks as $task): ?>
         <?php if ($task->getStatus() === 1): ?>
-            <li><?php echo $task->getName(); ?></li>
+            <li>
+                <?php echo $task->getName(); ?>
+                <form method="post" action="/completedtasks/delete">
+                    <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
+                    <button class="delete-button" type="submit">x</button>
+                </form>
+            </li>
         <?php endif; ?>
     <?php endforeach; ?>
 </ul>

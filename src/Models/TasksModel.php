@@ -87,4 +87,11 @@ class TasksModel
         ];
         $query->execute($params);
     }
+
+    public function deleteTask($taskId)
+    {
+        $sql = 'DELETE FROM `tasks` WHERE `id` = :task_id;';
+        $query = $this->db->prepare($sql);
+        $query->execute(['task_id' => $taskId]);
+    }
 }

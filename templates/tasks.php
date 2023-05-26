@@ -25,6 +25,10 @@
                     <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
                     <button type="submit" id="status" name="status" value="1">Mark as Complete</button>
                 </form>
+                <form method="post" action="/completedtasks/delete">
+                    <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
+                    <button class="delete-button" type="submit">x</button>
+                </form>
             </li>
         <?php endif; ?>
     <?php endforeach; ?>
