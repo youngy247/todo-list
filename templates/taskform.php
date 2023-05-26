@@ -9,9 +9,14 @@
 <form action="/tasks" method="post">
     <label for="name">Task name</label>
     <input id="name" name="name" />
+
     <label for="status">Status</label>
-    <input id="status" name="status" />
-    <button>Submit</button>
+    <select id="status" name="status">
+        <option value="0">Incomplete</option>
+        <option value="1">Complete</option>
+    </select>
+
+    <button type="submit">Submit</button>
 </form>
 
 <a href="/tasks">Back to tasks</a>
