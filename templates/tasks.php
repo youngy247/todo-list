@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Books</title>
+    <title>Tasks</title>
 </head>
 <body>
-<h1>The Tasks</h1>
+<h1>The Tasks to do</h1>
 <ul>
     <?php
     foreach ($tasks as $task) {
-        $status = $task->getStatus() === 0 ? 'Incomplete' : 'Complete';
-        echo '<li>' . $task->getName() . ' - ' . $status . '</li>';
+        if ($task->getStatus() === 0) {
+            echo '<li>' . $task->getName();
+        }
     }
     ?>
 </ul>
