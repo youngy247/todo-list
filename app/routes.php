@@ -22,6 +22,5 @@ return function (App $app) {
     $app->get('/courses', CoursesAPIController::class);
 
     $app->get('/tasks', Tasks::class);
-    $app->get('/addtask', TaskForm::class);
     $app->post('/tasks', TaskAdd::class);
 };
