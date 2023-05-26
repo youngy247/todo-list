@@ -14,5 +14,6 @@
     }
     ?>
 </ul>
+<a href="/addtask">Add a task</a>
 </body>
 </html>

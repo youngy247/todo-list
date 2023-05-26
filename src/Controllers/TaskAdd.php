@@ -29,9 +29,9 @@ class TaskAdd
         // use model to add data to database
         $newId = $this->tasksModel->addTask($newTask);
         if ($newId) {
-            $forResponse .= $newId . ' saved successfully</p>';
+            $forResponse .= $newId . ' saved successfully</p><a href="/tasks">Back to tasks</a>';
         } else {
-            $forResponse .= 'not saved';
+            $forResponse .= 'not saved<a href="/tasks">Back to tasks</a>';
         }
 
         $forResponse .= '</p>';
