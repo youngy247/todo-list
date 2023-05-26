@@ -41,18 +41,7 @@ class TasksModel
 //        return $query->fetch();
 //    }
 //
-//    public function addBook(array $newBook): int
-//    {
-//        $sql = 'INSERT INTO `books` (`title`, `author`)
-//            VALUES (:title, :author);';
-//        $query = $this->db->prepare($sql);
-//        $params = [
-//            'title' => $newBook['title'],
-//            'author' => $newBook['author']
-//        ];
-//        $query->execute($params);
-//        return $this->db->lastInsertId();
-//    }
+
     public function addTask($newTask)
     {
         $sql = 'INSERT INTO `tasks` (`name`, `status`)
@@ -93,5 +82,18 @@ class TasksModel
         $sql = 'DELETE FROM `tasks` WHERE `id` = :task_id;';
         $query = $this->db->prepare($sql);
         $query->execute(['task_id' => $taskId]);
+    }
+
+    public function updateTaskName($taskId, $name)
+    {
+        $sql = 'UPDATE `tasks`
+            SET `name` = :name
+            WHERE `id` = :task_id;';
+        $query = $this->db->prepare($sql);
+        $params = [
+            'name' => $name,
+            'task_id' => $taskId
+        ];
+        $query->execute($params);
     }
 }

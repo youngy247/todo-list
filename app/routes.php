@@ -30,5 +30,6 @@ return function (App $app) {
     $app->post('/completedtasks/delete', [Tasks::class, 'deleteTask']);
 
 
+    $app->post('/tasks/edit', [Tasks::class, 'editTask']);
 
 };

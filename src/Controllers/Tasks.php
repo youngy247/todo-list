@@ -55,4 +55,15 @@ class Tasks
         return $response->withRedirect('/tasks');
 
     }
+
+    public function editTask(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $taskId = $request->getParam('task_id');
+        $newName = $request->getParam('new_name_' . $taskId);
+
+        $this->tasksModel->updateTaskName($taskId, $newName);
+
+        return $response->withRedirect('/tasks');
+    }
+
 }

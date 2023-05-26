@@ -29,6 +29,12 @@
                     <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
                     <button class="delete-button" type="submit">x</button>
                 </form>
+                <form method="post" action="/tasks/edit">
+                    <input type="hidden" name="task_id" value="<?php echo $task->getId(); ?>">
+                    <label for="new_name_<?php echo $task->getId(); ?>">New Task Name</label>
+                    <input id="new_name_<?php echo $task->getId(); ?>" name="new_name_<?php echo $task->getId(); ?>" />
+                    <button type="submit">Edit</button>
+                </form>
             </li>
         <?php endif; ?>
     <?php endforeach; ?>
