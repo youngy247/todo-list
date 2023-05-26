@@ -19,14 +19,18 @@ class Tasks
         $this->renderer = $phpRenderer;
         $this->tasksModel = $tasksModel;
     }
-    function __invoke(RequestInterface  $request,
-                      ResponseInterface $response,
-                      array             $args): ResponseInterface
+    public function __invoke(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-
         $data = $this->tasksModel->getTasks();
-        return  $this->renderer->render($response, 'tasks.php', ['tasks' => $data]);
+        $template = 'tasks.php';
+
+        if (strpos($request->getUri()->getPath(), '/completedtasks') !== false) {
+            $template = 'completedtasks.php';
+        }
+
+        return $this->renderer->render($response, $template, ['tasks' => $data]);
     }
+
 
     public function updateStatus(RequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {

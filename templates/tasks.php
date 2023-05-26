@@ -29,6 +29,6 @@
         <?php endif; ?>
     <?php endforeach; ?>
 </ul>
-
+<a href="/completedtasks">See the completed tasks</a>
 </body>
 </html>
