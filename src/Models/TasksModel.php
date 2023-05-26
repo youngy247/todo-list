@@ -65,4 +65,13 @@ class TasksModel
         $query->execute($params);
         return $this->db->lastInsertId();
     }
+
+    public function getTaskCount(): int
+    {
+        $sql = 'SELECT COUNT(*) as count FROM `tasks`';
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['count'];
+    }
 }
